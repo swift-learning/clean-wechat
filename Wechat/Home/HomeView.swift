@@ -18,6 +18,8 @@ struct HomeView: View {
     @StateObject private var loginedModel: LoginedModelFromHomeView = LoginedModelFromHomeView()
     @State private var selectionTab: HomeTab = .exploration
     
+    private let currentUserProfile: UserProfile = UserProfile(username: "jsmith")
+    
     var body: some View {
         TabView(selection: $selectionTab) {
             Text("微信页面")
@@ -36,6 +38,7 @@ struct HomeView: View {
                     Label("发现", systemImage: "safari.fill")
                 }
                 .tag(HomeTab.exploration)
+                .environment(\.currentUserProfile, currentUserProfile)
             ProfileView()
                 .tabItem {
                     Label("我", systemImage: "person.fill")

@@ -9,12 +9,18 @@ import SwiftUI
 
 
 struct TimelineView: View {
+    @Environment(\.currentUserProfile) var currentUserProfile: UserProfile
+    var timelineService: TimelineService {
+        return TimelineServiceImpl(wechatAPI: URLSessionWechatAPI(),
+                                   currentLoginedUserProfile: currentUserProfile)
+    }
+    
     var body: some View {
         List {
-            TimelineHeaderView()
+            TimelineHeaderView(timelineService: timelineService)
                 .listRowInsets(EdgeInsets())
                 .listRowSeparator(.hidden)
-            TimelineContentView()
+            TimelineContentView(timelineService: timelineService)
                 .listRowSeparator(.hidden)
         }
         .listStyle(.plain)
@@ -24,6 +30,11 @@ struct TimelineView: View {
 
 struct TimelineView_Previews: PreviewProvider {
     static var previews: some View {
+        let wechatAPI: WechatAPI = URLSessionWechatAPI()
+        let profile: UserProfile = .init(username: "jsmith")
+        let timelineService: TimelineService = TimelineServiceImpl(wechatAPI: wechatAPI, currentLoginedUserProfile: profile)
+        
         TimelineView()
+            .environment(\.timelineService, timelineService)
     }
 }

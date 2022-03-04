@@ -8,35 +8,45 @@
 import SwiftUI
 
 struct TimelineHeaderView: View {
-    @EnvironmentObject private var loginedMode: LoginedModelFromHomeView
+    @StateObject private var viewModel: ViewModel
+    
+    init(timelineService: TimelineService) {
+        _viewModel = StateObject(wrappedValue: ViewModel(timelineService: timelineService))
+    }
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            Image(loginedMode.profile.backgroundUrl)
-                .resizable()
-                .scaledToFill()
+            ImageLoadingView(placeholderImageName: "profile-image-placeholder",
+                             url: viewModel.backgroundUrl,
+                             width: nil,
+                             height: 220)
             HStack {
-                Text(loginedMode.profile.nickname)
+                Text(viewModel.nickname)
                     .foregroundColor(.white)
                     .bold()
-                Image(loginedMode.profile.avatarUrl)
-                    .resizable()
-                    .frame(width: 70,
-                           height: 70)
+
+                ImageLoadingView(placeholderImageName: "avatar-image-placeholder",
+                                 url: viewModel.avatarUrl,
+                                 width: 70,
+                                 height: 70)
             }
-            .offset(x: -15, y: 15)
+            .offset(x: -15, y: 25)
         }
         .padding(EdgeInsets(top: 0,
                             leading: 0,
                             bottom: 20,
                             trailing: 0))
+        .onAppear {
+            viewModel.loadData()
+        }
     }
 }
 
 struct TimelineHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        let loginedModel: LoginedModelFromHomeView = LoginedModelFromHomeView()
-        return TimelineHeaderView()
-            .environmentObject(loginedModel)
+        let wechatAPI: WechatAPI = URLSessionWechatAPI()
+        let profile: UserProfile = .init(username: "jsmith")
+        return TimelineHeaderView(timelineService: TimelineServiceImpl(wechatAPI: wechatAPI,
+                                                                             currentLoginedUserProfile: profile))
     }
 }

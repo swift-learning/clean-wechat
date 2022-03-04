@@ -10,31 +10,28 @@ import SwiftUI
 struct TimelineContentItemView: View {
     @StateObject private var viewModel: ViewModel
     
-    init(timelineContent: TimelineContent) {
-        _viewModel = StateObject(wrappedValue: ViewModel(timelineContent: timelineContent))
+    init(tweet: Tweet) {
+        _viewModel = StateObject(wrappedValue: ViewModel(tweet: tweet))
     }
     
     var body: some View {
         HStack(alignment: .top) {
-            Image(viewModel.profileImageName)
-                .resizable()
-                .frame(width: 50, height: 50)
+            ImageLoadingView(placeholderImageName: "avatar-image-placeholder",
+                             url: viewModel.profileImageURL,
+                             width: 50,
+                             height: 50)
             VStack(alignment: .leading, spacing: 10) {
                 Text(viewModel.profileNick)
                     .bold()
-                Text(viewModel.content)
-                    .fontWeight(.light)
-                if viewModel.showSinglePhotoName {
-                    Image(viewModel.singlePhotoName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: 200)
+                if viewModel.showContent {
+                    Text(viewModel.content)
+                        .fontWeight(.light)
                 }
-                if viewModel.showLikes {
-                    TimelinkContentLikeView(likes: viewModel.likes)
+                if let images = viewModel.images, viewModel.showImages {
+                    TimelineImagesView(urls: images)
                 }
             }
-            Spacer()
+            Spacer(minLength: 0)
         }
     }
 }
@@ -42,9 +39,35 @@ struct TimelineContentItemView: View {
 struct TimelineContentItemView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TimelineContentItemView(timelineContent: TimelineContent(id: 1, nickname: "桃子猪", avatarUrl: "timeline_profile_image", type: .singleMessage(message: "不是我矫情,这年呐~,就是得和家人一起过才有味道."), likes: [""]))
-            TimelineContentItemView(timelineContent: TimelineContent(id: 1, nickname: "芒果🦒", avatarUrl: "timeline_profile_image_lu", type: .singlePhoto(photo: "timeline_profile_image_lu_photo1", message: "草莓兔最近移情别恋, 都好久不和我在一起玩了. 哼~生气"), likes: []))
-            TimelineContentItemView(timelineContent: TimelineContent(id: 1, nickname: "芒果🦒", avatarUrl: "timeline_profile_image_lu", type: .singlePhoto(photo: "timeline_profile_image_lu_photo1", message: "草莓兔最近移情别恋, 都好久不和我在一起玩了. 哼~生气"), likes: ["草莓🐰"]))
+            TimelineContentItemView(tweet: Tweet(id: 1,
+                                                 content: "不是我矫情,这年呐~,就是得和家人一起过才有味道.",
+                                                 images: nil,
+                                                 createBy: User(username: "zengheng",
+                                                                nickname: "Huan huan",
+                                                                avatarUrlPath: "https://thoughtworks-mobile-2018.herokuapp.com/images/user/avatar.png",
+                                                                profileUrlPath: nil)))
+            
+            TimelineContentItemView(tweet: Tweet(id: 1,
+                                                 content: "不是我矫情,这年呐~,就是得和家人一起过才有味道.",
+                                                 images: [
+                                                    TweetImage(url: "https://thoughtworks-mobile-2018.herokuapp.com/images/tweets/001.jpeg")
+                                                 ],
+                                                 createBy: User(username: "zengheng",
+                                                                nickname: "Huan huan",
+                                                                avatarUrlPath: "https://thoughtworks-mobile-2018.herokuapp.com/images/user/avatar.png",
+                                                                profileUrlPath: nil)))
+            
+            TimelineContentItemView(tweet: Tweet(id: 1,
+                                                 content: "不是我矫情,这年呐~,就是得和家人一起过才有味道.",
+                                                 images: [
+                                                    TweetImage(url: "https://thoughtworks-mobile-2018.herokuapp.com/images/tweets/001.jpeg"),
+                                                    TweetImage(url: "https://thoughtworks-mobile-2018.herokuapp.com/images/tweets/002.jpeg"),
+                                                    TweetImage(url: "https://thoughtworks-mobile-2018.herokuapp.com/images/tweets/003.jpeg")
+                                                 ],
+                                                 createBy: User(username: "zengheng",
+                                                                nickname: "Huan huan",
+                                                                avatarUrlPath: "https://thoughtworks-mobile-2018.herokuapp.com/images/user/avatar.png",
+                                                                profileUrlPath: nil)))
         }
     }
 }
