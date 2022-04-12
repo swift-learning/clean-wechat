@@ -245,7 +245,7 @@
 		8EFF8CED279AAAA100956FA1 /* Exploration */ = {
 			isa = PBXGroup;
 			children = (
-				8EE38079279A89B900A19AE4 /* ExplorationView.swift */,
+				C1105EC428055A1A009D09B2 /* Presentation */,
 			);
 			path = Exploration;
 			sourceTree = "<group>";
@@ -304,6 +304,14 @@
 			isa = PBXGroup;
 			children = (
 				8EDB1A81279A80F7001600B5 /* HomeView.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		C1105EC428055A1A009D09B2 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				8EE38079279A89B900A19AE4 /* ExplorationView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
