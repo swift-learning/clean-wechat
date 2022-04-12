@@ -1,27 +1,6 @@
 # 微信
 
-## APIs
-
-朋友圈用户数据
-
-```text
-https://thoughtworks-mobile-2018.herokuapp.com/user/jsmith
-```
-
-朋友圈Timeline数据
-
-```text
-https://thoughtworks-mobile-2018.herokuapp.com/user/jsmith/tweets
-```
-
-## 业务需求
-
-1. 在朋友圈顶部展示用户信息
-2. 在朋友圈用户信息下面展示朋友圈信息
-3. UI可大致参考微信官方
-
 ## 技术需求
 
-1. 使用SwiftUI
-2. 使用Combine
-3. 不使用第三方库
+1. 使用Clean architecture模式重构本项目
+2. 添加单元测试测试 使用XCTest 和 Quick两种写法分辨实现一个测试
