@@ -37,7 +37,19 @@
 		8EFF8CF3279AABF200956FA1 /* TimelineContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFF8CF2279AABF200956FA1 /* TimelineContentView.swift */; };
 		8EFF8CF5279ABC4A00956FA1 /* TimelineContentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFF8CF4279ABC4A00956FA1 /* TimelineContentItemView.swift */; };
 		8EFF8CF7279ABD0300956FA1 /* TimelinkContentLikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFF8CF6279ABD0300956FA1 /* TimelinkContentLikeView.swift */; };
+		C1105EE22805A34A009D09B2 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = C1105EE12805A34A009D09B2 /* Quick */; };
+		C1105EE42805A34A009D09B2 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = C1105EE32805A34A009D09B2 /* Nimble */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C1105ED128058236009D09B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8EDB1A74279A80F7001600B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8EDB1A7B279A80F7001600B5;
+			remoteInfo = Wechat;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8E2C790D27B275BB00EFB9ED /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -71,6 +83,7 @@
 		8EFF8CF2279AABF200956FA1 /* TimelineContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineContentView.swift; sourceTree = "<group>"; };
 		8EFF8CF4279ABC4A00956FA1 /* TimelineContentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineContentItemView.swift; sourceTree = "<group>"; };
 		8EFF8CF6279ABD0300956FA1 /* TimelinkContentLikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelinkContentLikeView.swift; sourceTree = "<group>"; };
+		C1105ECD28058236009D09B2 /* WechatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WechatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +91,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1105ECA28058236009D09B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1105EE22805A34A009D09B2 /* Quick in Frameworks */,
+				C1105EE42805A34A009D09B2 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +179,9 @@
 			children = (
 				8E5DBA0927CCE0F70012CCEF /* README.md */,
 				8EDB1A7E279A80F7001600B5 /* Wechat */,
+				C1105ECE28058236009D09B2 /* WechatTests */,
 				8EDB1A7D279A80F7001600B5 /* Products */,
+				C1105EE02805A34A009D09B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				8EDB1A7C279A80F7001600B5 /* Wechat.app */,
+				C1105ECD28058236009D09B2 /* WechatTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -321,6 +346,20 @@
 			path = DataSource;
 			sourceTree = "<group>";
 		};
+		C1105ECE28058236009D09B2 /* WechatTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WechatTests;
+			sourceTree = "<group>";
+		};
+		C1105EE02805A34A009D09B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -337,9 +376,35 @@
 			dependencies = (
 			);
 			name = Wechat;
+			packageProductDependencies = (
+			);
 			productName = "UI Component";
 			productReference = 8EDB1A7C279A80F7001600B5 /* Wechat.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C1105ECC28058236009D09B2 /* WechatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1105ED328058236009D09B2 /* Build configuration list for PBXNativeTarget "WechatTests" */;
+			buildPhases = (
+				C1105EC928058236009D09B2 /* Sources */,
+				C1105ECA28058236009D09B2 /* Frameworks */,
+				C1105ECB28058236009D09B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1105EDD2805A342009D09B2 /* PBXTargetDependency */,
+				C1105EDF2805A342009D09B2 /* PBXTargetDependency */,
+				C1105ED228058236009D09B2 /* PBXTargetDependency */,
+			);
+			name = WechatTests;
+			packageProductDependencies = (
+				C1105EE12805A34A009D09B2 /* Quick */,
+				C1105EE32805A34A009D09B2 /* Nimble */,
+			);
+			productName = WechatTests;
+			productReference = C1105ECD28058236009D09B2 /* WechatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -348,11 +413,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					8EDB1A7B279A80F7001600B5 = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					C1105ECC28058236009D09B2 = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = 8EDB1A7B279A80F7001600B5;
 					};
 				};
 			};
@@ -365,11 +434,16 @@
 				Base,
 			);
 			mainGroup = 8EDB1A73279A80F7001600B5;
+			packageReferences = (
+				C1105ED628058281009D09B2 /* XCRemoteSwiftPackageReference "Quick" */,
+				C1105ED92805829C009D09B2 /* XCRemoteSwiftPackageReference "Nimble" */,
+			);
 			productRefGroup = 8EDB1A7D279A80F7001600B5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				8EDB1A7B279A80F7001600B5 /* Wechat */,
+				C1105ECC28058236009D09B2 /* WechatTests */,
 			);
 		};
 /* End PBXProject section */
@@ -382,6 +456,13 @@
 				8E5DBA0A27CCE0F80012CCEF /* README.md in Resources */,
 				8EDB1A87279A80FD001600B5 /* Preview Assets.xcassets in Resources */,
 				8EDB1A84279A80FD001600B5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1105ECB28058236009D09B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +503,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C1105EC928058236009D09B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C1105ED228058236009D09B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8EDB1A7B279A80F7001600B5 /* Wechat */;
+			targetProxy = C1105ED128058236009D09B2 /* PBXContainerItemProxy */;
+		};
+		C1105EDD2805A342009D09B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = C1105EDC2805A342009D09B2 /* Quick */;
+		};
+		C1105EDF2805A342009D09B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = C1105EDE2805A342009D09B2 /* Nimble */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8EDB1A88279A80FD001600B5 /* Debug */ = {
@@ -597,6 +701,42 @@
 			};
 			name = Release;
 		};
+		C1105ED428058236009D09B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtworks.iot.WechatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wechat.app/Wechat";
+			};
+			name = Debug;
+		};
+		C1105ED528058236009D09B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtworks.iot.WechatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wechat.app/Wechat";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -618,7 +758,58 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C1105ED328058236009D09B2 /* Build configuration list for PBXNativeTarget "WechatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1105ED428058236009D09B2 /* Debug */,
+				C1105ED528058236009D09B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C1105ED628058281009D09B2 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				kind = exactVersion;
+				version = 4.0.0;
+			};
+		};
+		C1105ED92805829C009D09B2 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = exactVersion;
+				version = 9.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C1105EDC2805A342009D09B2 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1105ED628058281009D09B2 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		C1105EDE2805A342009D09B2 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1105ED92805829C009D09B2 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		C1105EE12805A34A009D09B2 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1105ED628058281009D09B2 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		C1105EE32805A34A009D09B2 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1105ED92805829C009D09B2 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8EDB1A74279A80F7001600B5 /* Project object */;
 }
