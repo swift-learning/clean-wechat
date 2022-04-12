@@ -26,7 +26,6 @@
 		8E5DBA2C27CE1E6F0012CCEF /* ImageLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DBA2B27CE1E6F0012CCEF /* ImageLoadingView.swift */; };
 		8E5DBA2E27D0AA220012CCEF /* TimelineImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5DBA2D27D0AA220012CCEF /* TimelineImagesView.swift */; };
 		8EB3F90D27B2682300E12C14 /* TimelineContentView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB3F90C27B2682300E12C14 /* TimelineContentView+ViewModel.swift */; };
-		8EB3F90F27B269B800E12C14 /* TimelineContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB3F90E27B269B800E12C14 /* TimelineContent.swift */; };
 		8EB3F91227B26EB900E12C14 /* TimelineContentItemView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB3F91127B26EB900E12C14 /* TimelineContentItemView+ViewModel.swift */; };
 		8EDB1A80279A80F7001600B5 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDB1A7F279A80F7001600B5 /* Application.swift */; };
 		8EDB1A82279A80F7001600B5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDB1A81279A80F7001600B5 /* HomeView.swift */; };
@@ -60,7 +59,6 @@
 		8E5DBA2B27CE1E6F0012CCEF /* ImageLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadingView.swift; sourceTree = "<group>"; };
 		8E5DBA2D27D0AA220012CCEF /* TimelineImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineImagesView.swift; sourceTree = "<group>"; };
 		8EB3F90C27B2682300E12C14 /* TimelineContentView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimelineContentView+ViewModel.swift"; sourceTree = "<group>"; };
-		8EB3F90E27B269B800E12C14 /* TimelineContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineContent.swift; sourceTree = "<group>"; };
 		8EB3F91127B26EB900E12C14 /* TimelineContentItemView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimelineContentItemView+ViewModel.swift"; sourceTree = "<group>"; };
 		8EDB1A7C279A80F7001600B5 /* Wechat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wechat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EDB1A7F279A80F7001600B5 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
@@ -86,16 +84,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8E039C2927B10FA9005341CB /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				8EB3F90C27B2682300E12C14 /* TimelineContentView+ViewModel.swift */,
-				8EB3F91127B26EB900E12C14 /* TimelineContentItemView+ViewModel.swift */,
-				8E5DBA1127CDB7530012CCEF /* TimelineHeaderView+ViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		8E3373CF27B2424400F2DB52 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,8 +105,6 @@
 		8E5DBA0B27CCE19C0012CCEF /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				8E5DBA1A27CDE3360012CCEF /* Domain */,
-				8E5DBA1327CDDA750012CCEF /* API */,
 				8E5DBA0E27CCE4EF0012CCEF /* Implements */,
 				8E5DBA0C27CCE1B70012CCEF /* TimelineService.swift */,
 			);
@@ -150,16 +136,6 @@
 			path = Implements;
 			sourceTree = "<group>";
 		};
-		8E5DBA1A27CDE3360012CCEF /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				8E5DBA1C27CDE35D0012CCEF /* User.swift */,
-				8E5DBA1E27CDE3690012CCEF /* Tweet.swift */,
-				8E5DBA2027CDEEA80012CCEF /* TweetImage.swift */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
 		8E5DBA2527CE03020012CCEF /* Environment */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,14 +150,6 @@
 				8E5DBA2B27CE1E6F0012CCEF /* ImageLoadingView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		8EB3F91027B269CA00E12C14 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				8EB3F90E27B269B800E12C14 /* TimelineContent.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		8EDB1A73279A80F7001600B5 = {
@@ -253,17 +221,19 @@
 		8EFF8CEE279AAAAD00956FA1 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
-				8E5DBA0B27CCE19C0012CCEF /* Service */,
-				8EB3F91027B269CA00E12C14 /* Model */,
-				8E039C2927B10FA9005341CB /* ViewModel */,
-				8EFF8CEF279AAB2C00956FA1 /* View */,
+				C1105EC728055BF7009D09B2 /* Data */,
+				C1105EC528055B7B009D09B2 /* Domain */,
+				8EFF8CEF279AAB2C00956FA1 /* Presentation */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
 		};
-		8EFF8CEF279AAB2C00956FA1 /* View */ = {
+		8EFF8CEF279AAB2C00956FA1 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				8EB3F90C27B2682300E12C14 /* TimelineContentView+ViewModel.swift */,
+				8EB3F91127B26EB900E12C14 /* TimelineContentItemView+ViewModel.swift */,
+				8E5DBA1127CDB7530012CCEF /* TimelineHeaderView+ViewModel.swift */,
 				8EE3807B279A8BB200A19AE4 /* TimelineView.swift */,
 				8EFF8CF0279AAB3A00956FA1 /* TimelineHeaderView.swift */,
 				8EFF8CF2279AABF200956FA1 /* TimelineContentView.swift */,
@@ -271,7 +241,7 @@
 				8EFF8CF6279ABD0300956FA1 /* TimelinkContentLikeView.swift */,
 				8E5DBA2D27D0AA220012CCEF /* TimelineImagesView.swift */,
 			);
-			path = View;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		C1105EC0280558C7009D09B2 /* Domain */ = {
@@ -314,6 +284,41 @@
 				8EE38079279A89B900A19AE4 /* ExplorationView.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		C1105EC528055B7B009D09B2 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				C1105EC628055B80009D09B2 /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		C1105EC628055B80009D09B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8E5DBA1C27CDE35D0012CCEF /* User.swift */,
+				8E5DBA1E27CDE3690012CCEF /* Tweet.swift */,
+				8E5DBA2027CDEEA80012CCEF /* TweetImage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C1105EC728055BF7009D09B2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8E5DBA0B27CCE19C0012CCEF /* Service */,
+				C1105EC828055BFB009D09B2 /* DataSource */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C1105EC828055BFB009D09B2 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				8E5DBA1327CDDA750012CCEF /* API */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,7 +413,6 @@
 				8E2C791527B27E6E00EFB9ED /* ProfileAvatarModificationView.swift in Sources */,
 				8E5DBA2E27D0AA220012CCEF /* TimelineImagesView.swift in Sources */,
 				8EE3807C279A8BB200A19AE4 /* TimelineView.swift in Sources */,
-				8EB3F90F27B269B800E12C14 /* TimelineContent.swift in Sources */,
 				8EFF8CF1279AAB3A00956FA1 /* TimelineHeaderView.swift in Sources */,
 				8EB3F90D27B2682300E12C14 /* TimelineContentView+ViewModel.swift in Sources */,
 				8E5DBA2727CE03360012CCEF /* EnvironmentValues+UserProfile.swift in Sources */,
