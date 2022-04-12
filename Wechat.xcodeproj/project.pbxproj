@@ -235,9 +235,9 @@
 		8EFF8CEC279AAA9100956FA1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C1105EC3280559E7009D09B2 /* Presentation */,
 				8E5DBA2527CE03020012CCEF /* Environment */,
 				8E358DCF27B36C6200C832C0 /* Model */,
-				8EDB1A81279A80F7001600B5 /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -296,6 +296,14 @@
 				8E2C790D27B275BB00EFB9ED /* ProfileView.swift */,
 				8E2C790F27B2761200EFB9ED /* ProfileHeaderView.swift */,
 				8E2C791427B27E6E00EFB9ED /* ProfileAvatarModificationView.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		C1105EC3280559E7009D09B2 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				8EDB1A81279A80F7001600B5 /* HomeView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
