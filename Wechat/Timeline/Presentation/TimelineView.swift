@@ -10,9 +10,16 @@ import SwiftUI
 
 struct TimelineView: View {
     @Environment(\.currentUserProfile) var currentUserProfile: UserProfile
+    @StateObject private var timelineDI = TimelineDI()
+    
     var timelineService: TimelineService {
         return TimelineServiceImpl(wechatAPI: URLSessionWechatAPI(),
                                    currentLoginedUserProfile: currentUserProfile)
+    }
+    
+    var retrieveCurrentUserTweetsUsecase: RetrieveCurrentUserTweetsUsecase {
+        return RetrieveCurrentUserTweetsUsecase(tweetRepository: timelineDI.tweetRepository,
+                                                    currentLoginedUserProfile: currentUserProfile)
     }
     
     var body: some View {
@@ -20,7 +27,7 @@ struct TimelineView: View {
             TimelineHeaderView(timelineService: timelineService)
                 .listRowInsets(EdgeInsets())
                 .listRowSeparator(.hidden)
-            TimelineContentView(timelineService: timelineService)
+            TimelineContentView(retrieveCurrentUserTweetsUsecase: retrieveCurrentUserTweetsUsecase)
                 .listRowSeparator(.hidden)
         }
         .listStyle(.plain)

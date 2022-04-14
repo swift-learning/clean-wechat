@@ -12,16 +12,16 @@ extension TimelineContentView {
     @MainActor final class ViewModel: ObservableObject {
         @Published private(set) var tweets: [Tweet] = []
         
-        private let timelineService: TimelineService
+        private let retrieveCurrentUserTweetsUsecase: RetrieveCurrentUserTweetsUsecase
         private var subscriptions: Set<AnyCancellable> = .init()
         
-        init(timelineService: TimelineService) {
-            self.timelineService = timelineService
+        init(retrieveCurrentuserTweetsUsecase: RetrieveCurrentUserTweetsUsecase) {
+            self.retrieveCurrentUserTweetsUsecase = retrieveCurrentuserTweetsUsecase
         }
         
         func loadData() {
-            timelineService
-                .retrieveCurrentUserTweets()
+            retrieveCurrentUserTweetsUsecase
+                .execute()
                 .handleEvents(receiveSubscription: { [weak self] subscription in
                     self?.tweets.removeAll()
                 })
