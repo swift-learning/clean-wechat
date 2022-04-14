@@ -13,7 +13,11 @@ enum TweetDataSourceRetriveTweetsError: Error {
     case empty
 }
 
-final class TweetDataSource {
+protocol TweetDataSource {
+    func retriveTweets(by username: String) -> AnyPublisher<[Tweet], TweetDataSourceRetriveTweetsError>
+}
+
+final class RemoteTweetDataSource: TweetDataSource {
     private let wechatAPI: WechatAPI
 
     init(wechatAPI: WechatAPI) {

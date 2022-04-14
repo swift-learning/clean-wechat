@@ -15,7 +15,7 @@ class TimelineDI: ObservableObject {
     
     init() {
         self.wechatAPI = URLSessionWechatAPI()
-        self.tweetDataSource = TweetDataSource(wechatAPI: self.wechatAPI)
+        self.tweetDataSource = RemoteTweetDataSource(wechatAPI: self.wechatAPI)
         self.tweetRepository = TweetRepository(remoteDataSource: self.tweetDataSource)
     }
 }

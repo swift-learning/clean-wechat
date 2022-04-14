@@ -39,7 +39,7 @@
 		8EFF8CF7279ABD0300956FA1 /* TimelinkContentLikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFF8CF6279ABD0300956FA1 /* TimelinkContentLikeView.swift */; };
 		C1105EE22805A34A009D09B2 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = C1105EE12805A34A009D09B2 /* Quick */; };
 		C1105EE42805A34A009D09B2 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = C1105EE32805A34A009D09B2 /* Nimble */; };
-		C1FF5FF7280861D500909C74 /* TweetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF5FF6280861D500909C74 /* TweetDataSource.swift */; };
+		C1FF5FF7280861D500909C74 /* RemoteTweetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF5FF6280861D500909C74 /* RemoteTweetDataSource.swift */; };
 		C1FF5FFA2808626800909C74 /* TweetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF5FF92808626800909C74 /* TweetRepository.swift */; };
 		C1FF5FFE280863C400909C74 /* TimelineDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF5FFD280863C400909C74 /* TimelineDI.swift */; };
 		C1FF6001280867CE00909C74 /* RetrieveCurrentTweetsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF6000280867CE00909C74 /* RetrieveCurrentTweetsUseCase.swift */; };
@@ -88,7 +88,7 @@
 		8EFF8CF4279ABC4A00956FA1 /* TimelineContentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineContentItemView.swift; sourceTree = "<group>"; };
 		8EFF8CF6279ABD0300956FA1 /* TimelinkContentLikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelinkContentLikeView.swift; sourceTree = "<group>"; };
 		C1105ECD28058236009D09B2 /* WechatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WechatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1FF5FF6280861D500909C74 /* TweetDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetDataSource.swift; sourceTree = "<group>"; };
+		C1FF5FF6280861D500909C74 /* RemoteTweetDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteTweetDataSource.swift; sourceTree = "<group>"; };
 		C1FF5FF92808626800909C74 /* TweetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetRepository.swift; sourceTree = "<group>"; };
 		C1FF5FFD280863C400909C74 /* TimelineDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDI.swift; sourceTree = "<group>"; };
 		C1FF6000280867CE00909C74 /* RetrieveCurrentTweetsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveCurrentTweetsUseCase.swift; sourceTree = "<group>"; };
@@ -361,6 +361,7 @@
 		C1105ECE28058236009D09B2 /* WechatTests */ = {
 			isa = PBXGroup;
 			children = (
+				C1FF600228086CD600909C74 /* Timeline */,
 			);
 			path = WechatTests;
 			sourceTree = "<group>";
@@ -375,7 +376,7 @@
 		C1FF5FF52808612400909C74 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				C1FF5FF6280861D500909C74 /* TweetDataSource.swift */,
+				C1FF5FF6280861D500909C74 /* RemoteTweetDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -402,6 +403,21 @@
 				C1FF6000280867CE00909C74 /* RetrieveCurrentTweetsUseCase.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		C1FF600228086CD600909C74 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				C1FF600328086CF400909C74 /* Domain */,
+			);
+			path = Timeline;
+			sourceTree = "<group>";
+		};
+		C1FF600328086CF400909C74 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -533,7 +549,7 @@
 				8EFF8CF3279AABF200956FA1 /* TimelineContentView.swift in Sources */,
 				8E2C791027B2761200EFB9ED /* ProfileHeaderView.swift in Sources */,
 				8E5DBA2427CDF1190012CCEF /* UserProfile.swift in Sources */,
-				C1FF5FF7280861D500909C74 /* TweetDataSource.swift in Sources */,
+				C1FF5FF7280861D500909C74 /* RemoteTweetDataSource.swift in Sources */,
 				C1FF5FFA2808626800909C74 /* TweetRepository.swift in Sources */,
 				8E2C790E27B275BB00EFB9ED /* ProfileView.swift in Sources */,
 				8EB3F91227B26EB900E12C14 /* TimelineContentItemView+ViewModel.swift in Sources */,
