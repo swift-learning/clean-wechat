@@ -43,6 +43,8 @@
 		C1FF5FFA2808626800909C74 /* TweetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF5FF92808626800909C74 /* TweetRepository.swift */; };
 		C1FF5FFE280863C400909C74 /* TimelineDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF5FFD280863C400909C74 /* TimelineDI.swift */; };
 		C1FF6001280867CE00909C74 /* RetrieveCurrentTweetsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF6000280867CE00909C74 /* RetrieveCurrentTweetsUseCase.swift */; };
+		C1FF600728086ED200909C74 /* TweetRepositoryXCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF600628086ED200909C74 /* TweetRepositoryXCTest.swift */; };
+		C1FF6009280877D300909C74 /* TweetRepositoryQuickTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF6008280877D300909C74 /* TweetRepositoryQuickTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,9 @@
 		C1FF5FF92808626800909C74 /* TweetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetRepository.swift; sourceTree = "<group>"; };
 		C1FF5FFD280863C400909C74 /* TimelineDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDI.swift; sourceTree = "<group>"; };
 		C1FF6000280867CE00909C74 /* RetrieveCurrentTweetsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveCurrentTweetsUseCase.swift; sourceTree = "<group>"; };
+		C1FF600528086ED200909C74 /* WechatTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WechatTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		C1FF600628086ED200909C74 /* TweetRepositoryXCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetRepositoryXCTest.swift; sourceTree = "<group>"; };
+		C1FF6008280877D300909C74 /* TweetRepositoryQuickTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetRepositoryQuickTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -416,8 +421,19 @@
 		C1FF600328086CF400909C74 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				C1FF600428086E8300909C74 /* Repository */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		C1FF600428086E8300909C74 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				C1FF600628086ED200909C74 /* TweetRepositoryXCTest.swift */,
+				C1FF600528086ED200909C74 /* WechatTests-Bridging-Header.h */,
+				C1FF6008280877D300909C74 /* TweetRepositoryQuickTest.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,6 +497,7 @@
 					};
 					C1105ECC28058236009D09B2 = {
 						CreatedOnToolsVersion = 13.3;
+						LastSwiftMigration = 1330;
 						TestTargetID = 8EDB1A7B279A80F7001600B5;
 					};
 				};
@@ -571,6 +588,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1FF600728086ED200909C74 /* TweetRepositoryXCTest.swift in Sources */,
+				C1FF6009280877D300909C74 /* TweetRepositoryQuickTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -769,14 +788,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtworks.iot.WechatTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "WechatTests/Timeline/Domain/Repository/WechatTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wechat.app/Wechat";
@@ -787,14 +814,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtworks.iot.WechatTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "WechatTests/Timeline/Domain/Repository/WechatTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wechat.app/Wechat";
