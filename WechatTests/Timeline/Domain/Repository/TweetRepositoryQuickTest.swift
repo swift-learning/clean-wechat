@@ -11,17 +11,28 @@ import Combine
 @testable import Wechat
 
 class TweetRepositoryQuickTest: QuickSpec {
-    final class FakeTweetDataSource: TweetDataSource {
-        let tweets: [Tweet]
+    final class FakeWeChatAPI: WechatAPI {
         
-        init(tweets: [Tweet]) {
-            self.tweets = tweets
+        let wechatAPITweet: [WechatAPITweet]
+        let wechatAPIUserInfo: WechatAPIUserInfo
+        
+        init(wechatAPITweet: [WechatAPITweet]) {
+            self.wechatAPITweet = wechatAPITweet
+            self.wechatAPIUserInfo = WechatAPIUserInfo(profileImage: "", avatar: "", nick: "", username: "")
         }
         
-        func retriveTweets(by username: String) -> AnyPublisher<[Tweet], TweetDataSourceRetriveTweetsError> {
-            return Just(tweets.filter { $0.createBy.username == username })
+        func requestUserInfo(by username: String) -> AnyPublisher<WechatAPIUserInfo, WechatAPIRequestUserInfoError> {
+            return Just(wechatAPIUserInfo)
                 .mapError { error in
-                    return TweetDataSourceRetriveTweetsError.internalError
+                    return WechatAPIRequestUserInfoError.internalError
+                }
+                .eraseToAnyPublisher()
+        }
+        
+        func requestTweets(by username: String) -> AnyPublisher<[WechatAPITweet], WechatAPIRequestTweetsError> {
+            return Just(wechatAPITweet.filter { $0.sender?.username == username })
+                .mapError { error in
+                    return WechatAPIRequestTweetsError.internalError
                 }
                 .eraseToAnyPublisher()
         }
@@ -31,17 +42,15 @@ class TweetRepositoryQuickTest: QuickSpec {
         describe("find tweet") {
             context("when there are two tweets created by two different user and find one user's tweets") {
                 it("returns one tweet") {
-                    let user1 = User(username: "first", nickname: "first", avatarUrlPath: "", profileUrlPath: nil)
-                    let user2 = User(username: "second", nickname: "second", avatarUrlPath: "", profileUrlPath: nil)
-                    let tweet1 = Tweet(id: 1, content: "from tweet 1", images: nil, createBy: user1)
-                    let tweet2 = Tweet(id: 2, content: "from tweet 2", images: nil, createBy: user2)
-                    let tweets = [tweet1, tweet2]
+                    let wechatAPITweet1 = WechatAPITweet(id: 1, content: "from tweet 1", images: nil, sender: WechatAPISender(username: "first", nick: "first", avatar: ""))
+                    let wechatAPITweet2 = WechatAPITweet(id: 2, content: "from tweet 2", images: nil, sender: WechatAPISender(username: "second", nick: "second", avatar: ""))
+                    let wechatAPITweets = [wechatAPITweet1, wechatAPITweet2]
                     var subscriptions: Set<AnyCancellable> = .init()
                     var result: [Tweet] = []
                     
-                    let tweetRepo = TweetRepository(remoteDataSource: FakeTweetDataSource(tweets: tweets))
+                    let tweetRepo = TweetRepository(remoteDataSource: RemoteTweetDataSource(wechatAPI: FakeWeChatAPI(wechatAPITweet: wechatAPITweets)))
                     
-                    tweetRepo.retrieveTweets(by: user1.username)
+                    tweetRepo.retrieveTweets(by: "first")
                         .sink { completion in
                             
                         } receiveValue: { tweets in
